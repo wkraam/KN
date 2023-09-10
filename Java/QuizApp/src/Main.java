@@ -1,16 +1,9 @@
-import dao.Question;
-import dao.QuestionDao;
 import user.Quizer;
 
 public class Main {
     public static void main(String[] args) {
-        //initDB();
-        Quizer.main();
-
+        Quizer.run();
     }
 
-    private static void initDB(){
-        QuestionDao questiondb = new QuestionDao();
-        questiondb.save(new Question(1, 1, "Question1", "Answer1", "Topic"));
-    }
+    //TODO: convert connection to use DAO class and to go through that, right now it independent.
 }

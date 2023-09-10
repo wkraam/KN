@@ -13,8 +13,12 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
-    public Question getByID(int ID) {
-        return null;
+    public List<Question> getByTopic(int topic) {
+        List<Question> returnList = new ArrayList<>();
+        for (Question q:questions) {
+            if (q.getTopic() == topic) returnList.add(q);
+        }
+        return returnList;
     }
 
     @Override
@@ -38,7 +42,7 @@ public class QuestionDao implements Dao<Question> {
         question.setDifficulty(Objects.requireNonNull(Integer.parseInt(params[1]), "Difficulty can't be null"));
         question.setQuestion(Objects.requireNonNull(params[2],"Question can't be null"));
         question.setAnswer(Objects.requireNonNull(params[3],"Answer can't be null"));
-        question.setTopic(Objects.requireNonNull(params[4],"Topic can't be null"));
+        question.setTopic(Objects.requireNonNull(Integer.parseInt(params[4]),"Topic can't be null"));
 
         questions.add(question);
     }

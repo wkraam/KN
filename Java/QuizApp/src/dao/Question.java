@@ -6,9 +6,9 @@ public class Question {
     private int difficulty;
     private String question;
     private String answer;
-    private String topic;
+    private int topic;
 
-    public Question(int ID, int difficulty, String question, String answer, String topic) {
+    public Question(int ID, int difficulty, String question, String answer, int topic) {
         this.ID = ID;
         this.difficulty = difficulty;
         this.question = question;
@@ -48,11 +48,11 @@ public class Question {
         this.answer = answer;
     }
 
-    public String getTopic() {
+    public int getTopic() {
         return topic;
     }
 
-    public void setTopic(String topic) {
+    public void setTopic(int topic) {
         this.topic = topic;
     }
 
