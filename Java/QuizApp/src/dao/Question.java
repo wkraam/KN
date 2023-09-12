@@ -5,10 +5,10 @@ public class Question {
     private int ID;
     private int difficulty;
     private String question;
-    private String answer;
+    private int answer;
     private int topic;
 
-    public Question(int ID, int difficulty, String question, String answer, int topic) {
+    public Question(int ID, int difficulty, String question, int answer, int topic) {
         this.ID = ID;
         this.difficulty = difficulty;
         this.question = question;
@@ -40,11 +40,11 @@ public class Question {
         this.question = question;
     }
 
-    public String getAnswer() {
+    public int getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 

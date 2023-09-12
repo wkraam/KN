@@ -41,7 +41,7 @@ public class QuestionDao implements Dao<Question> {
         question.setID(Objects.requireNonNull(Integer.parseInt(params[0]),"ID can't be null"));
         question.setDifficulty(Objects.requireNonNull(Integer.parseInt(params[1]), "Difficulty can't be null"));
         question.setQuestion(Objects.requireNonNull(params[2],"Question can't be null"));
-        question.setAnswer(Objects.requireNonNull(params[3],"Answer can't be null"));
+        question.setAnswer(Objects.requireNonNull(Integer.parseInt(params[3]),"Answer can't be null"));
         question.setTopic(Objects.requireNonNull(Integer.parseInt(params[4]),"Topic can't be null"));
 
         questions.add(question);
