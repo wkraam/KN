@@ -13,6 +13,16 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
+    public Answer getA(int sequence) {
+        return null;
+    }
+
+    @Override
+    public List<Answer> getAllAnswers(Question question) {
+        return null;
+    }
+
+    @Override
     public List<Question> getByTopic(int topic) {
         List<Question> returnList = new ArrayList<>();
         for (Question q:questions) {

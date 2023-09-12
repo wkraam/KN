@@ -15,6 +15,8 @@ public class Quizer {
         initdb();
         Question q1 = questionsDao.getQ(3);
         System.out.println(q1);
+        System.out.println(q1.getAnswer());
+        System.out.println(questionsDao.getAllAnswers(q1));
     }
 
     //for db testing

@@ -5,7 +5,9 @@ import java.util.List;
 public interface Dao<Q> {
     Question getQ(int sequence);
     Answer getA(int sequence);
-    List<Answer> getAllAnswersToQuestion(int questionID);
+
+    List<Answer> getAllAnswers(Question question);
+
     List<Question> getByTopic(int topic);
     List<Q> getAll();
 

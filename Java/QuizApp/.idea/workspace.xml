@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/Answer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Quizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Quizer.java" afterDir="false" />
     </list>
@@ -102,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694328713709</updated>
       <workItem from="1694328714986" duration="12110000" />
-      <workItem from="1694507750884" duration="20527000" />
+      <workItem from="1694507750884" duration="24150000" />
     </task>
     <servers />
   </component>

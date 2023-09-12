@@ -14,8 +14,18 @@ public class QuestionDaoDB implements Dao<Question> {
     }
 
     @Override
-    public Question getQ(int seq){
-        return con.getByID(seq);
+    public Question getQ(int sequence){
+        return con.getByID(sequence);
+    }
+
+    @Override
+    public Answer getA(int sequence) {
+        return con.getAnswer(sequence);
+    }
+
+    @Override
+    public List<Answer> getAllAnswers(Question question) {
+        return con.getAtoQ(question);
     }
 
     @Override

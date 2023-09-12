@@ -1,5 +1,6 @@
 package db;
 
+import dao.Answer;
 import dao.Question;
 import org.jetbrains.annotations.NotNull;
 
@@ -216,6 +217,48 @@ public class DatabaseConnection {
         return returnList;
     }
 
+    public Answer getAnswer(int sequence) {
+        try {
+            stmt = c.createStatement();
+            rs = stmt.executeQuery("select * from public.answers where id = "+sequence);
 
 
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String answer = rs.getString("answer");
+                Boolean correct = rs.getBoolean("correct");
+                return new Answer(id, answer, correct);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Answer> getAtoQ(@NotNull Question question){
+        List<Answer> returnList = new ArrayList<>();
+        List<Integer> answerIDs = new ArrayList<Integer>();
+        int questionID = question.getAnswer();
+
+        try {
+            //finding the corresponding answer id's to the question
+            stmt = c.createStatement();
+            rs = stmt.executeQuery("select answerid from answerstoquestions where questionid = "+questionID);
+            while (rs.next()){
+                answerIDs.add(rs.getInt("answerid"));
+            }
+            System.out.println(answerIDs);
+            //using all the ID's to get Answer objects.
+            for (int aId: answerIDs) {
+                returnList.add(getAnswer(aId));
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return returnList;
+    }
 }
