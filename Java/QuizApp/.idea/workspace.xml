@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/dao/Answer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/76724ab2-4bfe-411b-be8d-35c8896b3a35/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DatabaseConnection.java" afterDir="false" />
@@ -37,26 +41,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/wkraa/Downloads/postgresql-42.6.0.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/wkraa/Downloads/postgresql-42.6.0.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;h2&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -94,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694328713709</updated>
       <workItem from="1694328714986" duration="12110000" />
-      <workItem from="1694507750884" duration="3596000" />
+      <workItem from="1694507750884" duration="20527000" />
     </task>
     <servers />
   </component>

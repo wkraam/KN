@@ -58,7 +58,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question{" +
+        return "\nQuestion{" +
                 "ID=" + ID +
                 ", difficulty=" + difficulty +
                 ", question='" + question + '\'' +

@@ -3,28 +3,30 @@ package user;
 import dao.Dao;
 import dao.Question;
 import dao.QuestionDao;
-import db.DatabaseConnection;
+import dao.QuestionDaoDB;
+
 
 public class Quizer {
     private static Dao<Question> questionsDao;
 
     public static void run() {
-        questionsDao = new QuestionDao();
-        DatabaseConnection con = new DatabaseConnection();
+        questionsDao = new QuestionDaoDB();
+        //questionsDao = new QuestionDao();
         initdb();
-
-        con.connectToDB();
-        Question q1 = questionsDao.getQ(0);
+        Question q1 = questionsDao.getQ(3);
         System.out.println(q1);
-        System.out.println(questionsDao.getByTopic(1));
-        System.out.println(con.getAllFromQuestion());
     }
 
     //for db testing
     private static void initdb(){
-        questionsDao.save(new Question(0, 1, "Question1", 1, 1));
-        questionsDao.save(new Question(1, 1, "Question2", 2, 2));
-        questionsDao.save(new Question(2, 2, "Question3", 1, 1));
-        questionsDao.save(new Question(3, 5, "Question4", 2, 1));
+        if(questionsDao.getAll().isEmpty()) {
+            System.out.println("the db is empty, adding default cases");
+            questionsDao.save( 1, "Question1", 1, 1);
+            questionsDao.save( 1, "Question2", 2, 2);
+            questionsDao.save( 2, "Question3", 1, 1);
+            questionsDao.save( 5, "Question4", 2, 1);
+        }else{
+            System.out.println("the database has questions in it already, not adding default cases");
+        }
     }
 }

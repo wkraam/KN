@@ -27,6 +27,11 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
     public void delete(Question question) {
         questions.remove(question);
     }
@@ -34,6 +39,11 @@ public class QuestionDao implements Dao<Question> {
     @Override
     public void save(Question question) {
         questions.add(question);
+    }
+
+    @Override
+    public void save(int difficulty, String question, int answer, int topic) {
+
     }
 
     @Override

@@ -9,7 +9,7 @@
 16411||10|C|G
 16411||-9223372036854775808|T|G
 16411||10|T|G</Grants>
-      <IntrospectionStateNumber>2705</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2777</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
       <StartupTime>1694287899</StartupTime>
       <TimeZones>true ACDT
@@ -819,8 +819,13 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>2705</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2777</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
+      <Relations>sequence|table|57744|57745|1
+sequence|table|57774|57775|1
+sequence|table|57783|57784|1
+sequence|table|57844|57845|1
+</Relations>
       <OwnerName>postgres</OwnerName>
     </database>
     <database id="6" parent="1" name="testWad">
@@ -4251,78 +4256,252 @@ false Zulu
     <schema id="269" parent="5" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>2705</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2777</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <table id="270" parent="269" name="answers">
-      <ObjectId>57735</ObjectId>
-      <StateNumber>2700</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="271" parent="269" name="questions">
-      <ObjectId>57730</ObjectId>
-      <StateNumber>2697</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <column id="272" parent="270" name="id">
+    <sequence id="270" parent="269" name="answers_id_seq">
       <DataType>integer|0s</DataType>
+      <ObjectId>57774</ObjectId>
+      <StateNumber>2741</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="271" parent="269" name="answerstoquestions_id_seq">
+      <DataType>integer|0s</DataType>
+      <ObjectId>57783</ObjectId>
+      <StateNumber>2743</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="272" parent="269" name="questions_id_seq">
+      <DataType>integer|0s</DataType>
+      <ObjectId>57744</ObjectId>
+      <StateNumber>2724</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="273" parent="269" name="topics_id_seq">
+      <DataType>integer|0s</DataType>
+      <ObjectId>57844</ObjectId>
+      <StateNumber>2756</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="274" parent="269" name="answers">
+      <ObjectId>57775</ObjectId>
+      <StateNumber>2743</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="275" parent="269" name="answerstoquestions">
+      <ObjectId>57784</ObjectId>
+      <StateNumber>2743</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="276" parent="269" name="questions">
+      <ObjectId>57745</ObjectId>
+      <StateNumber>2732</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="277" parent="269" name="topics">
+      <ObjectId>57845</ObjectId>
+      <StateNumber>2767</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="278" parent="274" name="id">
+      <DataType>integer|0s</DataType>
+      <DefaultExpression>nextval(&apos;answers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2693</StateNumber>
+      <StateNumber>2741</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="273" parent="270" name="answer">
+    <column id="279" parent="274" name="answer">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2693</StateNumber>
+      <StateNumber>2741</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="274" parent="270" name="correct">
+    <column id="280" parent="274" name="correct">
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2693</StateNumber>
+      <StateNumber>2741</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="275" parent="271" name="id">
+    <index id="281" parent="274" name="answers_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57781</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2741</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="282" parent="274" name="answers_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57782</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2741</StateNumber>
+      <UnderlyingIndexId>57781</UnderlyingIndexId>
+    </key>
+    <column id="283" parent="275" name="id">
       <DataType>integer|0s</DataType>
+      <DefaultExpression>nextval(&apos;answerstoquestions_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2692</StateNumber>
+      <StateNumber>2743</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="276" parent="271" name="difficulty">
+    <column id="284" parent="275" name="questionid">
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>2743</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="285" parent="275" name="answerid">
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>2743</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <foreign-key id="286" parent="275" name="questions_fk">
+      <ColNames>questionid</ColNames>
+      <ObjectId>57883</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2776</StateNumber>
+      <RefTableId>57745</RefTableId>
+      <RefTableName>questions</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="287" parent="275" name="answers_fk">
+      <ColNames>answerid</ColNames>
+      <ObjectId>57878</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2775</StateNumber>
+      <RefTableId>57775</RefTableId>
+      <RefTableName>answers</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="288" parent="275" name="answerstoquestions_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57788</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2743</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="289" parent="275" name="answerstoquestions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57789</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2743</StateNumber>
+      <UnderlyingIndexId>57788</UnderlyingIndexId>
+    </key>
+    <column id="290" parent="276" name="id">
+      <DataType>integer|0s</DataType>
+      <DefaultExpression>nextval(&apos;questions_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2724</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="291" parent="276" name="difficulty">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2704</StateNumber>
+      <StateNumber>2724</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="277" parent="271" name="question">
+    <column id="292" parent="276" name="question">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2692</StateNumber>
+      <StateNumber>2724</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="278" parent="271" name="answer">
+    <column id="293" parent="276" name="answer">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2692</StateNumber>
+      <StateNumber>2724</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="279" parent="271" name="topic">
+    <column id="294" parent="276" name="topic">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2692</StateNumber>
+      <StateNumber>2724</StateNumber>
       <TypeId>23</TypeId>
     </column>
+    <foreign-key id="295" parent="276" name="topics_fk">
+      <ColNames>topic</ColNames>
+      <ObjectId>57873</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2772</StateNumber>
+      <RefTableId>57845</RefTableId>
+      <RefTableName>topics</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="296" parent="276" name="questions_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57751</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2724</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="297" parent="276" name="questions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57752</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2724</StateNumber>
+      <UnderlyingIndexId>57751</UnderlyingIndexId>
+    </key>
+    <column id="298" parent="277" name="id">
+      <DataType>integer|0s</DataType>
+      <DefaultExpression>nextval(&apos;topics_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2756</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="299" parent="277" name="topicbody">
+      <DataType>varchar|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>2756</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="300" parent="277" name="topics_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57851</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2756</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="301" parent="277" name="topics_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>57852</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2756</StateNumber>
+      <UnderlyingIndexId>57851</UnderlyingIndexId>
+    </key>
   </database-model>
 </dataSource>
