@@ -1,21 +1,27 @@
 package user;
 
-import dao.Dao;
-import dao.Question;
-import dao.QuestionDao;
-import dao.QuestionDaoDB;
+import dao.*;
 
 
 public class Quizer {
     private static Dao<Question> questionsDao;
+    private static Dao<Answer> answersDao;
+    private static Dao<Topic> topicsDao;
 
     public static void run() {
-        questionsDao = new QuestionDaoDB(); //PostgreSQL database
-        //questionsDao = new QuestionDao(); //In memory database
+        questionsDao = new QuestionDao();
+        answersDao = new AnswerDao();
+        topicsDao = new TopicDao();
+
+
+
         initdb(); //if the questions db does not have anything in it, it initializes it
-        Question q1 = questionsDao.getQ(3);
+
+
+
+        Question q1 = questionsDao.getObjectWithId(3);
         System.out.println(q1);
-        System.out.println(questionsDao.getAllAnswers(q1));
+        System.out.println(questionsDao.getAll());
     }
 
     //for db testing

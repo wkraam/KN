@@ -1,74 +1,67 @@
 package dao;
 
-import java.util.ArrayList;
+import db.DatabaseConnection;
+
 import java.util.List;
 import java.util.Objects;
 
 public class QuestionDao implements Dao<Question> {
-    private List<Question> questions = new ArrayList<>();
+    static DatabaseConnection con = new DatabaseConnection();
 
-    @Override
-    public Question getQ(int seq){
-        return questions.get(seq);
+    //on init
+    static {
+        con.connectToDB();
     }
 
     @Override
-    public Answer getA(int sequence) {
-        return null;
+    public Question getObjectWithId(int sequence){
+        return con.getByID(sequence);
+    }
+
+
+    @Override
+    public Question getObject(Question question) {
+        return con.getByID(question.getID());
     }
 
     @Override
-    public Topic getT(Question question) {
-        return null;
-    }
-
-    @Override
-    public List<Answer> getAllAnswers(Question question) {
-        return null;
-    }
-
-    @Override
-    public List<Question> getByTopic(int topic) {
-        List<Question> returnList = new ArrayList<>();
-        for (Question q:questions) {
-            if (q.getTopic() == topic) returnList.add(q);
-        }
-        return returnList;
+    public List<Question> getTopicById(int topic) {
+        return con.getByTopic(topic);
     }
 
     @Override
     public List<Question> getAll() {
-        return questions;
-    }
-
-    @Override
-    public void delete(int id) {
-
+        return con.getAllFromQuestion();
     }
 
     @Override
     public void delete(Question question) {
-        questions.remove(question);
+        con.deleteQuestion(question);
+    }
+
+    @Override
+    public void delete(int id){
+        con.deleteQuestion(id);
     }
 
     @Override
     public void save(Question question) {
-        questions.add(question);
+        con.saveQuestion(question);
     }
 
     @Override
     public void save(int difficulty, String question, int answer, int topic) {
-
+        con.saveQuestion(difficulty, question, answer, topic);
     }
 
     @Override
     public void update(Question question, String[] params) {
-        question.setID(Objects.requireNonNull(Integer.parseInt(params[0]),"ID can't be null"));
-        question.setDifficulty(Objects.requireNonNull(Integer.parseInt(params[1]), "Difficulty can't be null"));
-        question.setQuestion(Objects.requireNonNull(params[2],"Question can't be null"));
-        question.setAnswer(Objects.requireNonNull(Integer.parseInt(params[3]),"Answer can't be null"));
-        question.setTopic(Objects.requireNonNull(Integer.parseInt(params[4]),"Topic can't be null"));
-
-        questions.add(question);
+        //updated values
+        question.setDifficulty(Objects.requireNonNull(Integer.parseInt(params[0]), "Difficulty can't be null"));
+        question.setQuestion(Objects.requireNonNull(params[1],"Question can't be null"));
+        question.setAnswer(Objects.requireNonNull(Integer.parseInt(params[2]),"Answer can't be null"));
+        question.setTopic(Objects.requireNonNull(Integer.parseInt(params[3]),"Topic can't be null"));
+        //update object
+        con.updateQuestion(question);
     }
 }

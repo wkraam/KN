@@ -15,6 +15,9 @@ public class DatabaseConnection {
     PreparedStatement pstmt;
     ResultSet rs;
 
+
+
+    //------------------------------ Database methods -----------------------------------
     public Connection connectToDB(){
         try {
             Class.forName("org.postgresql.Driver");
@@ -28,16 +31,26 @@ public class DatabaseConnection {
         return c;
     }
 
-    public void closeDBConnection(){
-        try {
-            c.close();
-            System.out.println("Database connection closed successfully");
-        } catch (SQLException eSQL){
-            eSQL.printStackTrace();
+    //a check if database is empty or not
+    public boolean dbIsEmpty(String databaseName){
+        try{
+            String str = "select count(*) from "+databaseName;
+            pstmt = c.prepareStatement(str);
+            pstmt.execute();
+            rs = pstmt.getResultSet();
+            rs.next();
+            if(rs.getInt("count") == 0){
+                return true;
+            }else return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
+    //-----------------------------------------------------------------------------------
 
 
+
+    //----------------------------- Question object methods -----------------------------
     //with Question object.
     public void saveQuestion(@NotNull Question question){
         try{
@@ -55,7 +68,7 @@ public class DatabaseConnection {
         }
     }
 
-    //w/o Question object, with custom ID.
+    //w/o Question object, with custom ID (ID's can get messy, so not recommended).
     public void saveQuestion(int id, int difficulty, String question, int answer, int topic){
         try{
             pstmt = c.prepareStatement("insert into questions(id, difficulty, question, answer, topic)  " +
@@ -72,7 +85,7 @@ public class DatabaseConnection {
         }
     }
 
-    //w/o Question object, autoincrement ID (ID's can get messy, so not recommended).
+    //w/o Question object, autoincrement ID.
     public void saveQuestion(int difficulty, String question, int answer, int topic){
         try{
             pstmt = c.prepareStatement("insert into questions(difficulty, question, answer, topic)  " +
@@ -86,7 +99,6 @@ public class DatabaseConnection {
             throw new RuntimeException(e);
         }
     }
-
 
     public void updateQuestion(@NotNull Question question){
         try{
@@ -104,7 +116,6 @@ public class DatabaseConnection {
             throw new RuntimeException(e);
         }
     }
-
 
     public void deleteQuestion(int id){
         try{
@@ -127,24 +138,6 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
-
-
-    //a check if database is empty or not
-    public boolean dbIsEmpty(String databaseName){
-        try{
-            String str = "select count(*) from "+databaseName;
-            pstmt = c.prepareStatement(str);
-            pstmt.execute();
-            rs = pstmt.getResultSet();
-            rs.next();
-            if(rs.getInt("count") == 0){
-                return true;
-            }else return false;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
     public List<Question> getAllFromQuestion(){
 
@@ -173,7 +166,6 @@ public class DatabaseConnection {
         return returnList;
     }
 
-
     public Question getByID(int ID){
         try {
             stmt = c.createStatement();
@@ -194,6 +186,7 @@ public class DatabaseConnection {
         }
         return null;
     }
+
     public List<Question> getByTopic(int topicInt){
         List<Question> returnList = new ArrayList<>();
 
@@ -217,7 +210,10 @@ public class DatabaseConnection {
 
         return returnList;
     }
+    //-----------------------------------------------------------------------------------
 
+
+    //---------------------------- Answer object methods --------------------------------
     public Answer getAnswer(int sequence) {
         try {
             stmt = c.createStatement();
@@ -263,6 +259,57 @@ public class DatabaseConnection {
         return returnList;
     }
 
+    public List<Answer> getAllFromAnswers(){
+
+        List<Answer> returnList = new ArrayList<>();
+
+        try {
+            stmt = c.createStatement();
+            rs = stmt.executeQuery("select * from public.answers");
+
+            //getting every row at a time and making them into Answer obj., adding to the returnList.
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String answer = rs.getString("answer");
+                Boolean correct = rs.getBoolean("correct");
+                returnList.add(new Answer(id, answer, correct));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return returnList;
+    }
+
+    public void deleteAnswer(@NotNull Answer answer){
+        try{
+            pstmt = c.prepareStatement("delete from questions where id = ?");
+            pstmt.setInt(1, answer.getID());
+            pstmt.execute();
+            System.out.println("Deleted question: "+answer);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void saveAnswer(@NotNull Answer answer){
+        try{
+            pstmt = c.prepareStatement("insert into answers(id, answer, correct)  " +
+                    "VALUES (?,?,?)");
+            pstmt.setInt(1, answer.getID());
+            pstmt.setString(2, answer.getAnswer());
+            pstmt.setBoolean(3, answer.isCorrect());
+            pstmt.execute();
+            System.out.println("Answer obj. saved");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    //-----------------------------------------------------------------------------------
+
+
+    //---------------------------- Topic object methods ---------------------------------
     public Topic getTopic(int sequence) {
         try{
             stmt = c.createStatement();
@@ -282,8 +329,28 @@ public class DatabaseConnection {
         int topicID = question.getTopic();
         return getTopic(topicID);
     }
+    //-----------------------------------------------------------------------------------
 
-    public void deleteAnswer(Answer answer){
 
+    //----------------------- Answerstoquestions table methods --------------------------
+
+    public void setAnswerToQuestion(int questionID, int answerID){
+        try {
+            pstmt = c.prepareStatement("insert into answerstoquestions(questionid, answerid) VALUES (?,?)");
+            pstmt.setInt(1, questionID);
+            pstmt.setInt(2, answerID);
+            pstmt.execute();
+            System.out.println("added a answer id: "+answerID+" to question with id: "+questionID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+    public List<Integer> getAnswerToQuestionTable(){
+        List<Integer> returnList = new ArrayList<>();
+
+        return returnList;
+    }
+
+    //-----------------------------------------------------------------------------------
 }

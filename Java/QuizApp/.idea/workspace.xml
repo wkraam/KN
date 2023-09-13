@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/Topic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DatabaseConnectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/AnswerDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AnswerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/TopicDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TopicDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Quizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Quizer.java" afterDir="false" />
     </list>
@@ -21,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -147,7 +147,7 @@
       <updated>1694328713709</updated>
       <workItem from="1694328714986" duration="12110000" />
       <workItem from="1694507750884" duration="25074000" />
-      <workItem from="1694584565288" duration="7410000" />
+      <workItem from="1694584565288" duration="13854000" />
     </task>
     <servers />
   </component>
