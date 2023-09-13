@@ -3,12 +3,14 @@ package dao;
 import java.util.List;
 
 public interface Dao<Q> {
-    Question getQ(int sequence);
-    Answer getA(int sequence);
+    Question getQ(int sequence); //get question
+    Answer getA(int sequence); //get answer
 
-    List<Answer> getAllAnswers(Question question);
+    Topic getT(Question question); //get topic
 
-    List<Question> getByTopic(int topic);
+    List<Answer> getAllAnswers(Question question); //get a list of all answers
+
+    List<Question> getByTopic(int topic); //get a list of questions sorted by topic
     List<Q> getAll();
 
     void delete(int id);
@@ -20,3 +22,5 @@ public interface Dao<Q> {
     void update(Q q, String[] params);
     void delete(Q q);
 }
+
+//TODO: clean this messy code!!

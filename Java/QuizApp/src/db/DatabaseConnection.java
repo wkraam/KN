@@ -2,6 +2,7 @@ package db;
 
 import dao.Answer;
 import dao.Question;
+import dao.Topic;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
@@ -107,7 +108,7 @@ public class DatabaseConnection {
 
     public void deleteQuestion(int id){
         try{
-            pstmt = c.prepareStatement("delete * from questions where id = ?");
+            pstmt = c.prepareStatement("delete from questions where id = ?");
             pstmt.setInt(1, id);
             pstmt.execute();
             System.out.println("Deleted question with id: "+id);
@@ -118,7 +119,7 @@ public class DatabaseConnection {
 
     public void deleteQuestion(@NotNull Question question){
         try{
-            pstmt = c.prepareStatement("delete * from questions where id = ?");
+            pstmt = c.prepareStatement("delete from questions where id = ?");
             pstmt.setInt(1, question.getID());
             pstmt.execute();
             System.out.println("Deleted question: "+question);
@@ -248,7 +249,7 @@ public class DatabaseConnection {
             while (rs.next()){
                 answerIDs.add(rs.getInt("answerid"));
             }
-            System.out.println(answerIDs);
+            //System.out.println(answerIDs);
             //using all the ID's to get Answer objects.
             for (int aId: answerIDs) {
                 returnList.add(getAnswer(aId));
@@ -260,5 +261,29 @@ public class DatabaseConnection {
         }
 
         return returnList;
+    }
+
+    public Topic getTopic(int sequence) {
+        try{
+            stmt = c.createStatement();
+            rs = stmt.executeQuery("SELECT * from topics where id="+sequence);
+            while  (rs.next()){
+                int topicID = rs.getInt("id");
+                String topicBody = rs.getString("topicbody");
+                return new Topic(topicID, topicBody);
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Topic getTopic(@NotNull Question question){
+        int topicID = question.getTopic();
+        return getTopic(topicID);
+    }
+
+    public void deleteAnswer(Answer answer){
+
     }
 }

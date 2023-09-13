@@ -24,6 +24,11 @@ public class QuestionDaoDB implements Dao<Question> {
     }
 
     @Override
+    public Topic getT(Question question) {
+        return con.getTopic(question);
+    }
+
+    @Override
     public List<Answer> getAllAnswers(Question question) {
         return con.getAtoQ(question);
     }
@@ -69,3 +74,6 @@ public class QuestionDaoDB implements Dao<Question> {
         con.updateQuestion(question);
     }
 }
+
+//TODO:MOVE ANSWER TO IT'S OWN ANSWERDAODB CLASS
+//TODO:MOVE TOPIC TO IT'S OWN TOPICDAO CLASS

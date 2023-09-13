@@ -18,6 +18,11 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
+    public Topic getT(Question question) {
+        return null;
+    }
+
+    @Override
     public List<Answer> getAllAnswers(Question question) {
         return null;
     }

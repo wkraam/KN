@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/dao/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/DatabaseConnectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDaoDB.java" afterDir="false" />
@@ -19,11 +22,17 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="DatabaseConnectionTest" />
+    </enabled-run-configurations>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,7 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
+    "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -47,9 +56,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "C:/Users/wkraa/Downloads/postgresql-42.6.0.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
@@ -60,6 +71,14 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -68,15 +87,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Quizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="user.Quizer" />
+    <configuration name="DatabaseConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QuizApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseConnectionTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseConnectionTest.questionsShouldNotBeEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QuizApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseConnectionTest" />
+      <option name="METHOD_NAME" value="questionsShouldNotBeEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseConnectionTest.saveAndDeleteQuestionsShouldSaveToDatabaseAndDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QuizApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseConnectionTest" />
+      <option name="METHOD_NAME" value="saveAndDeleteQuestionsShouldSaveToDatabaseAndDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseConnectionTest.saveQuestionsShouldSaveToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QuizApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseConnectionTest" />
+      <option name="METHOD_NAME" value="saveQuestionsShouldSaveToDatabase" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -84,7 +130,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Quizer" />
+        <item itemvalue="JUnit.DatabaseConnectionTest" />
+        <item itemvalue="JUnit.DatabaseConnectionTest.saveAndDeleteQuestionsShouldSaveToDatabaseAndDelete" />
+        <item itemvalue="JUnit.DatabaseConnectionTest.saveQuestionsShouldSaveToDatabase" />
+        <item itemvalue="JUnit.DatabaseConnectionTest.questionsShouldNotBeEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -97,7 +146,8 @@
       <option name="presentableId" value="Default" />
       <updated>1694328713709</updated>
       <workItem from="1694328714986" duration="12110000" />
-      <workItem from="1694507750884" duration="24150000" />
+      <workItem from="1694507750884" duration="25074000" />
+      <workItem from="1694584565288" duration="7410000" />
     </task>
     <servers />
   </component>
