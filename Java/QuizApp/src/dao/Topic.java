@@ -27,7 +27,7 @@ public class Topic {
 
     @Override
     public String toString() {
-        return "Topic{" +
+        return "\nTopic{" +
                 "id=" + id +
                 ", topicBody='" + topicBody + '\'' +
                 '}';

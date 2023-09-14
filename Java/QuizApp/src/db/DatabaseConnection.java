@@ -21,7 +21,7 @@ public class DatabaseConnection {
     public Connection connectToDB(){
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "Leopard1996");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","KN", "KN");
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
@@ -102,14 +102,15 @@ public class DatabaseConnection {
 
     public void updateQuestion(@NotNull Question question){
         try{
-            pstmt = c.prepareStatement("update questions " +
-                    "set(?,?,?,?,?) where id = ?");
+            pstmt = c.prepareStatement("update questions set id=?,difficulty=?,question=?,answer=?,topic=? where id = ?;");
             pstmt.setInt(1, question.getID());
             pstmt.setInt(2, question.getDifficulty());
             pstmt.setString(3, question.getQuestion());
             pstmt.setInt(4, question.getAnswer());
             pstmt.setInt(5, question.getTopic());
             pstmt.setInt(6, question.getID());
+            //System.out.println(pstmt);
+            //pstmt = c.prepareStatement(pstmt.toString());
             pstmt.execute();
             System.out.println("Question obj. updated");
         } catch (SQLException e) {
@@ -293,6 +294,10 @@ public class DatabaseConnection {
         }
     }
 
+    public void deleteAnswer(@NotNull int id){
+        deleteAnswer(getAnswer(id));
+    }
+
     public void saveAnswer(@NotNull Answer answer){
         try{
             pstmt = c.prepareStatement("insert into answers(id, answer, correct)  " +
@@ -302,6 +307,20 @@ public class DatabaseConnection {
             pstmt.setBoolean(3, answer.isCorrect());
             pstmt.execute();
             System.out.println("Answer obj. saved");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateAnswer(@NotNull Answer answer){
+        try{
+            pstmt = c.prepareStatement("update answers set id=?,answer=?,correct=? where id = ?;");
+            pstmt.setInt(1, answer.getID());
+            pstmt.setString(2, answer.getAnswer());
+            pstmt.setBoolean(3, answer.isCorrect());
+            pstmt.setInt(4, answer.getID());
+            pstmt.execute();
+            System.out.println("Answer obj. updated");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -328,6 +347,24 @@ public class DatabaseConnection {
     public Topic getTopic(@NotNull Question question){
         int topicID = question.getTopic();
         return getTopic(topicID);
+    }
+
+    public List<Topic> getAllFromTopics(){
+        List<Topic> returnList = new ArrayList<>();
+        try {
+            stmt = c.createStatement();
+            rs = stmt.executeQuery("select * from public.topics");
+
+            //getting every row at a time and making them into Answer obj., adding to the returnList.
+            while (rs.next()){
+                int topicID = rs.getInt("id");
+                String topicBody = rs.getString("topicbody");
+                returnList.add(new Topic(topicID, topicBody));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return returnList;
     }
     //-----------------------------------------------------------------------------------
 

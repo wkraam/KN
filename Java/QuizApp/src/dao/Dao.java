@@ -6,7 +6,7 @@ public interface Dao<Q> {
     // ----------------- get -------------------------
     Q getObject(Q objectType); //get Q
     Q getObjectWithId(int id);
-    List<Q> getTopicById(int topic); //get a list of questions sorted by topic
+    List<Q> getQuestionsUsingTopicById(int topic); //get a list of questions sorted by topic
     List<Q> getAll(); //get a list of all objects in its table
     // ----------------- del -------------------------
     void delete(int id);

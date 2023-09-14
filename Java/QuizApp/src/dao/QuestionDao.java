@@ -1,6 +1,7 @@
 package dao;
 
 import db.DatabaseConnection;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,7 +26,7 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
-    public List<Question> getTopicById(int topic) {
+    public List<Question> getQuestionsUsingTopicById(int topic) {
         return con.getByTopic(topic);
     }
 
@@ -55,12 +56,14 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
-    public void update(Question question, String[] params) {
+    public void update(@NotNull Question question, String @NotNull [] params) {
+
         //updated values
         question.setDifficulty(Objects.requireNonNull(Integer.parseInt(params[0]), "Difficulty can't be null"));
         question.setQuestion(Objects.requireNonNull(params[1],"Question can't be null"));
         question.setAnswer(Objects.requireNonNull(Integer.parseInt(params[2]),"Answer can't be null"));
         question.setTopic(Objects.requireNonNull(Integer.parseInt(params[3]),"Topic can't be null"));
+
         //update object
         con.updateQuestion(question);
     }

@@ -1,12 +1,14 @@
 package dao;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import static dao.QuestionDao.con;
 
 public class TopicDao implements Dao<Topic>{
     @Override
-    public Topic getObject(Topic topic) {
+    public Topic getObject(@NotNull Topic topic) {
     return con.getTopic(topic.getId());
 }
 
@@ -16,13 +18,17 @@ public class TopicDao implements Dao<Topic>{
     }
 
     @Override
-    public List<Topic> getTopicById(int topic) {
+    public List<Topic> getQuestionsUsingTopicById(int topic) {
         return null;
     }
 
     @Override
     public List<Topic> getAll() {
-        return null;
+        return con.getAllFromTopics();
+    }
+
+    public Topic getQuestionsTopic(Question question){
+        return con.getTopic(question);
     }
 
     @Override

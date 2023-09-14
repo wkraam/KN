@@ -14,14 +14,24 @@ public class Quizer {
         topicsDao = new TopicDao();
 
 
-
         initdb(); //if the questions db does not have anything in it, it initializes it
-
 
 
         Question q1 = questionsDao.getObjectWithId(3);
         System.out.println(q1);
         System.out.println(questionsDao.getAll());
+        questionsDao.save(new Question(600,2, "Suss", 2, 1));
+
+        System.out.println(questionsDao.getQuestionsUsingTopicById(1));
+        questionsDao.update(questionsDao.getObjectWithId(600), new String[]{"601", "testing update object", "3", "6"});
+
+        System.out.println(questionsDao.getQuestionsUsingTopicById(6));
+        questionsDao.delete(600);
+
+        System.out.println(answersDao.getAll());
+        Answer a1 = answersDao.getObjectWithId(1);
+        a1.setCorrect(!a1.isCorrect());
+        System.out.println(a1.isCorrect());
     }
 
     //for db testing
