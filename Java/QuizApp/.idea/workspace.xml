@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/AnswerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AnswerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/QuestionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/TopicDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TopicDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/Quizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Quizer.java" afterDir="false" />
-    </list>
+    <list default="true" id="d285a4bf-1917-44e6-9522-67d40cfa30cd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +139,7 @@
       <workItem from="1694507750884" duration="25074000" />
       <workItem from="1694584565288" duration="13855000" />
       <workItem from="1694629445964" duration="2846000" />
-      <workItem from="1694693644923" duration="3661000" />
+      <workItem from="1694693644923" duration="3993000" />
     </task>
     <servers />
   </component>
