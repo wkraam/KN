@@ -1,14 +1,22 @@
 package com.KN.OrderManagementSystem.Model;
 
-import com.KN.OrderManagementSystem.Model.Product;
+import jakarta.persistence.*;
 
+@Entity
 public class OrderLine {
+    private @Id @GeneratedValue long id;
+    @ManyToOne
+    @JoinColumn(name = "produce_id")
     private Product produce;
     private float quantity;
 
     public OrderLine(Product produce, float quantity) {
         this.produce = produce;
         this.quantity = quantity;
+    }
+
+    public OrderLine() {
+
     }
 
     public Product getProduce() {
