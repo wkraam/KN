@@ -1,8 +1,8 @@
-package com.KN.OrderManagementSystem.API;
+package com.KN.OrderManagementSystem;
 
 import java.time.LocalDate;
 
-public class api {
+public class OrderController {
 
 
     public void createCustomer(){
@@ -18,6 +18,14 @@ public class api {
     }
 
     public void searchOrderByDate(LocalDate date){
+
+    }
+
+    public void searchOrderByProduct(){
+
+    }
+
+    public void searchOrderByCustomer(){
 
     }
 }

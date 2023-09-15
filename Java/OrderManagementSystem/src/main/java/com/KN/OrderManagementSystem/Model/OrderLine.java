@@ -1,6 +1,6 @@
-package com.KN.OrderManagementSystem.Service;
+package com.KN.OrderManagementSystem.Model;
 
-import com.KN.OrderManagementSystem.DAO.Product;
+import com.KN.OrderManagementSystem.Model.Product;
 
 public class OrderLine {
     private Product produce;

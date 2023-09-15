@@ -1,6 +1,6 @@
 package com.KN.OrderManagementSystem.Service;
 
-public class Service {
+public class OrderService {
     public void OrderService(){
 
     }

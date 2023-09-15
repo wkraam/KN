@@ -1,6 +1,13 @@
-package com.KN.OrderManagementSystem.DAO;
+package com.KN.OrderManagementSystem.Model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Customer {
+    private @Id @GeneratedValue long id;
     private long registrationCode;
     private String fullName;
     private String email;
@@ -12,6 +19,8 @@ public class Customer {
         this.email = email;
         this.telephone = telephone;
     }
+
+    public Customer() {}
 
     public long getRegistrationCode() {
         return registrationCode;

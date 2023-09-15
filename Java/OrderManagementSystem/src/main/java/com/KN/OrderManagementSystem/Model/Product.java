@@ -1,6 +1,13 @@
-package com.KN.OrderManagementSystem.DAO;
+package com.KN.OrderManagementSystem.Model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Product {
+
+    private @Id @GeneratedValue long id;
     private int name;
     private long skuCode;
     private float unitPrice;
@@ -10,6 +17,8 @@ public class Product {
         this.skuCode = skuCode;
         this.unitPrice = unitPrice;
     }
+
+    public Product() {}
 
     public int getName() {
         return name;
