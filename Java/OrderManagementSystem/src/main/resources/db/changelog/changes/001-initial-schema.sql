@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS customer (
     telephone int
 );
 
+
 Create table if not exists product (
     id int primary key,
     name varchar(255),
@@ -13,7 +14,7 @@ Create table if not exists product (
     unitPrice float
 );
 
-Create table if not exists product (
+Create table if not exists orders (
     id int primary key,
     product int,
     quantity float

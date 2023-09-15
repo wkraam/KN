@@ -13,7 +13,7 @@ Create table if not exists product (
     unitPrice float
 );
 
-Create table if not exists product (
+Create table if not exists orders (
     id int primary key,
     product int,
     quantity float
