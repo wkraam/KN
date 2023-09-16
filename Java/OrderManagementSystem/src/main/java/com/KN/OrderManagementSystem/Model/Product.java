@@ -8,24 +8,24 @@ import jakarta.persistence.Id;
 public class Product {
 
     private @Id @GeneratedValue long id;
-    private int name;
+    private String productName;
     private long skuCode;
     private float unitPrice;
 
-    public Product(int name, long skuCode, float unitPrice) {
-        this.name = name;
+    public Product(String productName, long skuCode, float unitPrice) {
+        this.productName = productName;
         this.skuCode = skuCode;
         this.unitPrice = unitPrice;
     }
 
     public Product() {}
 
-    public int getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(int name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public long getSkuCode() {
@@ -47,7 +47,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name=" + name +
+                "name=" + productName +
                 ", skuCode=" + skuCode +
                 ", unitPrice=" + unitPrice +
                 '}';

@@ -25,7 +25,7 @@ public class ProductService {
         return productRepository.save(newProduct);
     }
 
-    public Product findProductByIs(Long id) throws Throwable {
+    public Product findProductByIds(Long id) throws Throwable {
         return productRepository.findProductById(id).orElseThrow(() -> new ProductNotFoundException("Product: "+id+" is not int the database"));
     }
 

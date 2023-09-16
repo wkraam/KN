@@ -15,9 +15,7 @@ public class OrderLine {
         this.quantity = quantity;
     }
 
-    public OrderLine() {
-
-    }
+    public OrderLine() {}
 
     public Product getProduce() {
         return produce;

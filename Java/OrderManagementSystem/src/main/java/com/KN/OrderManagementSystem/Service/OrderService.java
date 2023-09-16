@@ -1,12 +1,17 @@
 package com.KN.OrderManagementSystem.Service;
 
 import com.KN.OrderManagementSystem.Exceptions.OrderLineNotFoundException;
+import com.KN.OrderManagementSystem.Model.Customer;
 import com.KN.OrderManagementSystem.Model.OrderLine;
+import com.KN.OrderManagementSystem.Model.Orders;
+import com.KN.OrderManagementSystem.Model.Product;
 import com.KN.OrderManagementSystem.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -17,23 +22,35 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public OrderLine addOrderLine(OrderLine newOrderLine){
-        return orderRepository.save(newOrderLine);
+    public Orders addOrderLine(OrderLine newOrderLine, Customer customer){
+        return orderRepository.save(newOrderLine, customer, LocalDate.now());
     }
 
-    public OrderLine updateOrderLine(OrderLine newOrderLine) {
-        return orderRepository.save(newOrderLine);
+    public Orders updateOrdersLines(Orders newOrders) {
+        return orderRepository.save(newOrders);
     }
 
-    public OrderLine findOrderLineByIs(Long id) throws Throwable {
+    public Orders findOrderLineByIds(Long id) throws Throwable {
         return orderRepository.findOrderLineById(id).orElseThrow(() -> new OrderLineNotFoundException("OrderLine: "+id+" is not int the database"));
     }
 
-    public List<OrderLine> findAllOrderLines(){
+    public List<Orders> findAllOrderLines(){
         return orderRepository.findAll();
     }
 
-    public void deleteOrderLine(OrderLine delOrderLine){
+    public Optional<Orders> findAllOrdersByDate(LocalDate date){
+        return orderRepository.findOrdersByBuyTime(date);
+    }
+
+    public Optional<Orders> findAllOrdersByProduct(Product product){
+        return orderRepository.findOrderLineByProduce(product);
+    }
+
+    public Optional<Orders> findAllOrdersByCustomer(Customer customer){
+        return orderRepository.findOrderLinesByCustomer(customer);
+    }
+
+    public void deleteOrderLine(Orders delOrderLine){
         orderRepository.delete(delOrderLine);
     }
 

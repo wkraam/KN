@@ -25,7 +25,7 @@ public class CustomerService {
         return customerRepository.save(newCustomer);
     }
 
-    public Customer findCustomerByIs(Long id) throws Throwable {
+    public Customer findCustomerByIds(Long id) throws Throwable {
         return customerRepository.findCustomerById(id).orElseThrow(() -> new CustomerNotFoundException("Customer: "+id+" is not int the database"));
     }
 

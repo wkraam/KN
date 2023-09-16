@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS customer (
     id int PRIMARY KEY,
     registrationCode int,
-    fullname VARCHAR(255),
+    fullName VARCHAR(255),
     email VARCHAR(255),
     telephone int
 );
