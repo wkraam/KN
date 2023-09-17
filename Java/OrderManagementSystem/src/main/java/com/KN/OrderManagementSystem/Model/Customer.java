@@ -1,16 +1,19 @@
 package com.KN.OrderManagementSystem.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "customer")
 public class Customer {
     private @Id @GeneratedValue long id;
+    @Column(name = "registrationCode")
     private long registrationCode;
+    @Column(name = "fullName")
     private String fullName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "telephone")
     private long telephone;
 
     public Customer(long registrationCode, String fullName, String email, long telephone) {
@@ -57,7 +60,8 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "registrationCode=" + registrationCode +
+                "id=" + id +
+                ", registrationCode=" + registrationCode +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone=" + telephone +

@@ -8,13 +8,7 @@ CREATE TABLE IF NOT EXISTS customer (
 
 Create table if not exists product (
     id int primary key,
-    name varchar(255),
+    productName varchar(255),
     skuCode int,
     unitPrice float
-);
-
-Create table if not exists orders (
-    id int primary key,
-    product int,
-    quantity float
 );

@@ -1,15 +1,21 @@
 package com.KN.OrderManagementSystem.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "product")
 public class Product {
 
-    private @Id @GeneratedValue long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_generator")
+    @SequenceGenerator(name="product_generator", sequenceName = "product_seq")
+    @Column(name = "id", updatable = false, nullable = false)
+    private long id;
+    @Column(name = "productName")
     private String productName;
+    @Column(name = "skuCode")
     private long skuCode;
+    @Column(name = "unitPrice")
     private float unitPrice;
 
     public Product(String productName, long skuCode, float unitPrice) {
@@ -47,7 +53,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name=" + productName +
+                "id=" + id +
+                ", productName=" + productName +
                 ", skuCode=" + skuCode +
                 ", unitPrice=" + unitPrice +
                 '}';

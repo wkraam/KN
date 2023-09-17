@@ -36,7 +36,8 @@ public class OrderLine {
     @Override
     public String toString() {
         return "OrderLine{" +
-                "produce=" + produce +
+                "id=" + id +
+                ", produce=" + produce +
                 ", quantity=" + quantity +
                 '}';
     }
